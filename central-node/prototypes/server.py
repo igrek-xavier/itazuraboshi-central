@@ -11,12 +11,12 @@ EVENTTYPE = pygame.event.custom_type()
 # handler processes the message and sends "Success" back to the client
 async def handler(websocket, path):
     async for message in websocket:
-        await processMsg(message)
+        # print(websocket.remote_address[0])
+        await processMsg(message, websocket.remote_address[0])
         await websocket.send("Success")
 
-async def processMsg(message):
-    print(f"[Received]: {message}")
-    pygame.fastevent.post(pygame.event.Event(EVENTTYPE, message=message))
+async def processMsg(message, ip_address):
+    pygame.fastevent.post(pygame.event.Event(EVENTTYPE, {'message':message, 'ip_address':ip_address}))
 
 async def main(future):
     async with websockets.serve(handler, IPADDRESS, PORT):

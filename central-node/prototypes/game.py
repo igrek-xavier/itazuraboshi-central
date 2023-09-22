@@ -356,13 +356,15 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == server.EVENTTYPE:
-            # print(event.message)
-            message_json = json.loads(event.message)
-            # print(message_json)
-            LINE_1_DATA[0] = message_json['tables'][0]['top']
-            print(LINE_1_DATA[0])
-            # color = pygame.Color('red')
-            # x = (x + radius / 3) % (WIDTH - radius * 2) + radius
+            print(event.ip_address) # ip list config of ws clients (192.168.1.{100, 101, 102, 103, 104})
+            if event.ip_address == '192.168.1.99':
+                print("data from line 1")
+                message_json = json.loads(event.message)
+                # populate the LINE1 data table
+                LINE_1_DATA[0] = message_json['tables'][0]['top']
+                print(LINE_1_DATA[0])
+                # color = pygame.Color('red')
+                # x = (x + radius / 3) % (WIDTH - radius * 2) + radius
             Pan.addValues()
 
     # fill the background with white
