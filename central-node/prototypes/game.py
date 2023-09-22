@@ -32,12 +32,14 @@ LINE_4_DATA = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 LINE_5_DATA = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 LINE_6_DATA = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-BOX_SIDE  = 70
-BOX_SPACE = 0
-BOX_HORIZ = 100
-BOX_HORIZ_TEXT = 110
+# graphic layout
+
+BOX_SIDE         = 70
+BOX_SPACE        = 0
+BOX_HORIZ        = 100 # place of graphic box for each table box
+BOX_HORIZ_TEXT   = 110 # place of graphic text for each table box
 BOX_GOKEI_OFFSET = 10
-VALUES_OFFSET = 20
+VALUES_OFFSET    = 20
 
 BOX_UE_1 = 0
 BOX_UE_2 = 0
@@ -133,7 +135,7 @@ class Pane(object):
     def addRect(self):
         # line
         # self.rect = pygame.draw.rect(self.screen, (black), (200,                           BOX_HORIZ, BOX_SIDE + 30, BOX_SIDE), 2)
-        # box
+        # boxes numnbers
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 2*BOX_SIDE + BOX_SPACE,  BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 4*BOX_SIDE + BOX_SPACE,  BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 6*BOX_SIDE + BOX_SPACE,  BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
@@ -141,7 +143,7 @@ class Pane(object):
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 10*BOX_SIDE + BOX_SPACE, BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 12*BOX_SIDE + BOX_SPACE, BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (200 + 14*BOX_SIDE + BOX_SPACE, BOX_HORIZ, BOX_SIDE, BOX_SIDE), 2)
-        # gokei
+        # lines names
         self.rect = pygame.draw.rect(self.screen, (black), (50, 200, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (50, 200 + 2*BOX_SIDE + BOX_SPACE, BOX_SIDE, BOX_SIDE), 2)
         self.rect = pygame.draw.rect(self.screen, (black), (50, 200 + 4*BOX_SIDE + BOX_SPACE, BOX_SIDE, BOX_SIDE), 2)
@@ -151,15 +153,15 @@ class Pane(object):
     def addText(self):
         # line
         # self.screen.blit(self.font.render('レーン', True, (255,0,0)), (200,                           BOX_HORIZ_TEXT))
-        # box
-        self.screen.blit(self.font.render('1-1', True, (255,0,0)), (200 + 2*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-2', True, (255,0,0)), (200 + 4*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-3', True, (255,0,0)), (200 + 6*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-4', True, (255,0,0)), (200 + 8*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-5', True, (255,0,0)), (200 + 10*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-6', True, (255,0,0)), (200 + 12*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
-        self.screen.blit(self.font.render('1-7', True, (255,0,0)), (200 + 14*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
-        # gokei
+        # box numbers
+        self.screen.blit(self.font.render('1', True, (255,0,0)), (200 + 2*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('2', True, (255,0,0)), (200 + 4*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('3', True, (255,0,0)), (200 + 6*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('4', True, (255,0,0)), (200 + 8*BOX_SIDE  + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('5', True, (255,0,0)), (200 + 10*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('6', True, (255,0,0)), (200 + 12*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
+        self.screen.blit(self.font.render('7', True, (255,0,0)), (200 + 14*BOX_SIDE + BOX_SPACE, BOX_HORIZ_TEXT))
+        # lines names
         self.screen.blit(self.font.render('1', True, (255,0,0)), (50 + BOX_GOKEI_OFFSET, 200 + BOX_GOKEI_OFFSET))
         self.screen.blit(self.font.render('2', True, (255,0,0)), (50 + BOX_GOKEI_OFFSET, 200 + BOX_GOKEI_OFFSET + 2*BOX_SIDE  + BOX_SPACE))
         self.screen.blit(self.font.render('3', True, (255,0,0)), (50 + BOX_GOKEI_OFFSET, 200 + BOX_GOKEI_OFFSET + 4*BOX_SIDE  + BOX_SPACE))
