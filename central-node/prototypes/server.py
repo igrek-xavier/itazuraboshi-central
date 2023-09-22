@@ -15,7 +15,7 @@ async def handler(websocket, path):
         await websocket.send("Success")
 
 async def processMsg(message):
-    # print(f"[Received]: {message}")
+    print(f"[Received]: {message}")
     pygame.fastevent.post(pygame.event.Event(EVENTTYPE, message=message))
 
 async def main(future):
